@@ -1,0 +1,30 @@
+{
+  "name": "pea-event",
+  "version": "1.0.0",
+  "description": "a can be extended event model class",
+  "main": "src/PeAEvent.js",
+  "scripts": {
+    "dev": "mocha -w",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pea3nut/pea-event.git"
+  },
+  "keywords": [
+    "event",
+    "model",
+    "extend"
+  ],
+  "author": "pea3nut",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pea3nut/pea-event/issues"
+  },
+  "homepage": "https://github.com/pea3nut/pea-event#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^3.5.0",
+    "sinon": "^3.2.1"
+  }
+}
