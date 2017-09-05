@@ -1,6 +1,8 @@
 language: node_js
 test:
     - npm run test
+after_success:
+    - npm run coveralls
 node_js:
     - "node"
 cache:
