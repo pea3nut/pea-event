@@ -5,7 +5,7 @@
   "main": "src/PeAEvent.js",
   "scripts": {
     "dev": "mocha -w",
-    "test": "mocha"
+    "test": "istanbul cover node_modules/mocha/bin/_mocha"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/pea3nut/pea-event#readme",
   "devDependencies": {
     "chai": "^4.1.2",
+    "istanbul": "^0.4.5",
     "mocha": "^3.5.0",
     "sinon": "^3.2.1"
   }
