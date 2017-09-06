@@ -5,7 +5,7 @@
   "main": "src/PeAEvent.js",
   "scripts": {
     "dev": "mocha -w",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha && istanbul-coveralls"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "chai": "^4.1.2",
     "coveralls": "^2.13.1",
     "istanbul": "^0.4.5",
+    "istanbul-coveralls": "^1.0.3",
     "mocha": "^3.5.0",
     "mocha-lcov-reporter": "^1.3.0",
     "sinon": "^3.2.1"
