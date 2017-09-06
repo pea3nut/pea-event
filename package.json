@@ -5,7 +5,7 @@
   "main": "src/PeAEvent.js",
   "scripts": {
     "dev": "mocha -w",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha && istanbul-coveralls"
+    "test": "cross-env COVERALLS_REPO_TOKEN=Tf5DDW2mL6BQOjrSMdSPGRbaKNPGU1thk istanbul cover ./node_modules/mocha/bin/_mocha && istanbul-coveralls"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   "devDependencies": {
     "chai": "^4.1.2",
     "coveralls": "^2.13.1",
+    "cross-env": "^5.0.5",
     "istanbul": "^0.4.5",
     "istanbul-coveralls": "^1.0.3",
     "mocha": "^3.5.0",
