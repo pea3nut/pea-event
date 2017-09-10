@@ -5,6 +5,7 @@
   "main": "src/PeAEvent.js",
   "scripts": {
     "dev": "mocha -w",
+    "build": "node ./build/build.js",
     "test": "istanbul cover ./node_modules/mocha/bin/_mocha && istanbul-coveralls"
   },
   "repository": {
@@ -26,6 +27,7 @@
     "chai": "^4.1.2",
     "istanbul": "^0.4.5",
     "istanbul-coveralls": "^1.0.3",
+    "jsdoc-to-markdown": "^3.0.0",
     "mocha": "^3.5.0",
     "sinon": "^3.2.1"
   }

@@ -1,0 +1,1 @@
+require('./jsdoc2readme');

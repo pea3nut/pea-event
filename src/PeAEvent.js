@@ -10,10 +10,11 @@ class PeAEvent{
         }
     };
     /**
-     * listen a event
+     * listen a event, add a listener for event
      * @param {string} eventType - "*" means all
      * @param {function} listener
-     * @param {boolean} once
+     * @param {Object} [options]
+     * @param {boolean} options.once -  If true, the listener would be automatically removed when invoked.
      * */
     on(eventType,listener,{once}={}){
         if(typeof eventType!=='string'||typeof listener!=='function'){
@@ -32,7 +33,7 @@ class PeAEvent{
     };
     /**
      * listen a event but once
-     * @alias PeAEvent#on(eventType,listener,{once:true})
+     * it's alias for PeAEvent#on(eventType,listener,{once:true})
      * @param {string} eventType - "*" means all
      * @param {function} listener
      * @param {Object} [options]
@@ -45,7 +46,7 @@ class PeAEvent{
     };
     /**
      * remove a event listener
-     * note: if you use * in listener, waiter will be remove too
+     * > note: if you use * in listener, waiter will be remove too
      * @param {string} eventType
      * @param {function|string} listener - "*" means all
      * @return {boolean} success or no
@@ -57,9 +58,9 @@ class PeAEvent{
     /**
      * wait a event
      * you can add a checker, return a boolean to specify whether to wait
-     * if return a true, promise will resolve
+     * if return a true, promise will be resolve
      * @param {string} eventType - "*" means all
-     * @param {function} [checker] - a checker function
+     * @param {function} [checker] - a checker function, it will call by event dispatch and received dispatch's argument, return a boolean for resolve or keep waiting
      * @return {Promise}
      * */
     wait(eventType ,checker=()=>true){
@@ -75,7 +76,8 @@ class PeAEvent{
         });
     }
     /**
-     * return number of listener
+     * return the number of listeners for a given event type
+     * @param {string} eventType
      * @return {Number}
      * */
     has(eventType){
@@ -85,12 +87,12 @@ class PeAEvent{
             return 0;
         }
     }
-    /**reset event listener*/
+    /**reset all event listener*/
     reset(){this._events ={}};
     /**
      * trigger a event, exec this event's listener all
      * you can overwrite this method to changed you want,
-     * but overwrite method should use PeAEvent#execListener to exec a listener
+     * but overwrite method should use PeAEvent#execListener(listener ,arguments ,eventType) to exec a listener
      * @param {string} type - event name to trigger
      * @param {Array} args - passed argument
      * @return {Promise}
@@ -138,6 +140,7 @@ class PeAEvent{
 /**
  * @param {string} type
  * @param {PeAEvent.Event} event
+ * @private
  * */
 PeAEvent.prototype.addEvent =function(type,event){
     if(!(type in this._events)){
@@ -155,6 +158,7 @@ PeAEvent.prototype.addEvent =function(type,event){
 /**
  * @param {string} type
  * @param {PeAEvent.Event} event
+ * @private
  * */
 PeAEvent.prototype.removeEvent =function(type,event){
     if(!(type in this._events)){
