@@ -1,10 +1,10 @@
 # pea-event &middot; [![travis-ci Status](https://travis-ci.org/pea3nut/pea-event.svg?branch=master)](https://www.travis-ci.org/pea3nut/pea-event) [![soverage Status](https://coveralls.io/repos/github/pea3nut/pea-event/badge.svg?branch=master)](https://coveralls.io/github/pea3nut/pea-event?branch=master) [![npm version](https://img.shields.io/npm/v/pea-event.svg?style=flat)](https://www.npmjs.com/package/pea-event) [![MIT](https://img.shields.io/dub/l/vibe-d.svg)](LICENSE)
 
-A can be extended event model class, usual use it in javascript application.
+An event model, extended in your js app
 
 # What is this?
 
-pea-event is a javascript class, It can help you manage events reliably in you application.
+pea-event is a class of js that helps you manage event/listener model
 
 ```js
 class App extends PeAEvent{};
@@ -35,9 +35,9 @@ setTimeout(function(){
 }());
 ```
 
-It's vary semantic right?
+It's very semantic right?
 
-pea-event can do more than this, maybe you should look at the [APIs](#APIs)
+pea-event can do more than this, maybe you should look at the [APIs](#apis)
 
 # APIs
 
@@ -88,7 +88,7 @@ listen a event, add a listener for event
 <a name="PeAEvent+one"></a>
 
 ### PeAEvent.one(eventType, listener, [options])
-listen a event but onceit's alias for PeAEvent#on(eventType,listener,{once:true})
+listen a event but once.it's alias for PeAEvent#on(eventType,listener,{once:true})
 
 **Kind**: instance method of [<code>PeAEvent</code>](#PeAEvent)  
 
@@ -101,7 +101,7 @@ listen a event but onceit's alias for PeAEvent#on(eventType,listener,{once:true
 <a name="PeAEvent+off"></a>
 
 ### PeAEvent.off(eventType, listener) ⇒ <code>boolean</code>
-remove a event listener> note: if you use * in listener, waiter will be remove too
+remove a event listener.> note: if you use * in listener, waiter will be remove too
 
 **Kind**: instance method of [<code>PeAEvent</code>](#PeAEvent)  
 **Returns**: <code>boolean</code> - success or no  
@@ -114,7 +114,7 @@ remove a event listener> note: if you use * in listener, waiter will be remove 
 <a name="PeAEvent+wait"></a>
 
 ### PeAEvent.wait(eventType, [checker]) ⇒ <code>Promise</code>
-wait a eventyou can add a checker, return a boolean to specify whether to waitif return a true, promise will be resolve
+wait a event.you can add a checker, return a boolean to specify whether to waitif return a true, promise will be resolve
 
 **Kind**: instance method of [<code>PeAEvent</code>](#PeAEvent)  
 
@@ -143,7 +143,7 @@ reset all event listener
 <a name="PeAEvent+execEventAll"></a>
 
 ### *PeAEvent.execEventAll(type, args) ⇒ <code>Promise</code>*
-trigger a event, exec this event's listener allyou can overwrite this method to changed you want,but overwrite method should use PeAEvent#execListener(listener ,arguments ,eventType) to exec a listener
+trigger a event, exec this event's listener all.you can overwrite this method to changed you want,but overwrite method should use PeAEvent#execListener(listener ,arguments ,eventType) to exec a listener.
 
 **Kind**: instance abstract method of [<code>PeAEvent</code>](#PeAEvent)  
 
@@ -155,7 +155,7 @@ trigger a event, exec this event's listener allyou can overwrite this method to
 <a name="PeAEvent+execListener"></a>
 
 ### *PeAEvent.execListener(listener, args, eventType)*
-how call a event listeneryou can overwrite this method to changed you want
+how call a event listener.you can overwrite this method to changed you want.
 
 **Kind**: instance abstract method of [<code>PeAEvent</code>](#PeAEvent)  
 
@@ -168,3 +168,7 @@ how call a event listeneryou can overwrite this method to changed you want
 
 
 <!--/jsdoc-->
+
+# License
+
+MIT

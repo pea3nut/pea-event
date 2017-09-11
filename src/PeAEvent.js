@@ -32,7 +32,7 @@ class PeAEvent{
         };
     };
     /**
-     * listen a event but once
+     * listen a event but once.
      * it's alias for PeAEvent#on(eventType,listener,{once:true})
      * @param {string} eventType - "*" means all
      * @param {function} listener
@@ -45,7 +45,7 @@ class PeAEvent{
         return this.on(...args);
     };
     /**
-     * remove a event listener
+     * remove a event listener.
      * > note: if you use * in listener, waiter will be remove too
      * @param {string} eventType
      * @param {function|string} listener - "*" means all
@@ -56,7 +56,7 @@ class PeAEvent{
         return this.removeEvent(eventType,event);
     };
     /**
-     * wait a event
+     * wait a event.
      * you can add a checker, return a boolean to specify whether to wait
      * if return a true, promise will be resolve
      * @param {string} eventType - "*" means all
@@ -90,9 +90,9 @@ class PeAEvent{
     /**reset all event listener*/
     reset(){this._events ={}};
     /**
-     * trigger a event, exec this event's listener all
+     * trigger a event, exec this event's listener all.
      * you can overwrite this method to changed you want,
-     * but overwrite method should use PeAEvent#execListener(listener ,arguments ,eventType) to exec a listener
+     * but overwrite method should use PeAEvent#execListener(listener ,arguments ,eventType) to exec a listener.
      * @param {string} type - event name to trigger
      * @param {Array} args - passed argument
      * @return {Promise}
@@ -123,8 +123,8 @@ class PeAEvent{
         else                   return Promise.race(promises);
     };
     /**
-     * how call a event listener
-     * you can overwrite this method to changed you want
+     * how call a event listener.
+     * you can overwrite this method to changed you want.
      * @param {function} listener - event listener
      * @param {Array} args - the parameters passed in when the event is trigger
      * @param {string} eventType - the event name
