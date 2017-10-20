@@ -147,6 +147,24 @@ describe('PeAEvent#off',function(){
         PE.off('click','*');
         Assert.notExists(getEventRecord(PE).click);
     });
+    it('return true means some listener be removed',function(){
+        const PE =new PeAEvent(true);
+        getEventRecord(PE).click =[
+            new PeAEvent.Event(console.log),
+            new PeAEvent.Event(console.warn,console.error),
+        ];
+        Assert.lengthOf(getEventRecord(PE).click ,2);
+        Assert.isTrue(PE.off('click',console.log));
+        Assert.isTrue(PE.off('click','*'));
+        Assert.isFalse(PE.off('click',console.log));
+        Assert.isFalse(PE.off('click','*'));
+        getEventRecord(PE).click =[
+            new PeAEvent.Event(console.log),
+        ];
+        Assert.isTrue(PE.off('click',console.log));
+        Assert.isFalse(PE.off('click',console.log));
+        Assert.isFalse(PE.off('click','*'));
+    });
 });
 describe('PeAEvent#wait',function(){
     it('wait a event',async function(){
@@ -233,6 +251,18 @@ describe('PeAEvent#wait',function(){
 
 });
 describe('PeAEvent#execEventAll',function(){
+    it('second argument must be an Array',function(){
+        const PE =new PeAEvent(true);
+        Assert.throws(function(){
+            PE.execEventAll('click','abc');
+        },TypeError);
+        Assert.throws(function(){
+            PE.execEventAll('click',{length:0});
+        },TypeError);
+        Assert.doesNotThrow(function(){
+            PE.execEventAll('click',[]);
+        },TypeError);
+    });
     it('will call PeAEvent#execListener with PeAEvent.Event#getExec',function(){
         const PE =new PeAEvent(true);
 
