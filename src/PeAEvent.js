@@ -21,7 +21,7 @@ class PeAEvent{
             throw new TypeError('illegal call PeAEvent#on',...arguments);
         }
         var event =new PeAEvent.Event(listener);
-        this.addEvent(eventType,event);
+        this._addEvent(eventType,event);
 
         if(once ===true){
             let that =this;
@@ -53,7 +53,7 @@ class PeAEvent{
      * */
     off(eventType,listener){
         var event =new PeAEvent.Event(listener);
-        return this.removeEvent(eventType,event);
+        return this._removeEvent(eventType,event);
     };
     /**
      * wait a event.
@@ -72,7 +72,7 @@ class PeAEvent{
                     resolve();
                 };
             });
-            this.addEvent(eventType ,event);
+            this._addEvent(eventType ,event);
         });
     }
     /**
@@ -142,7 +142,7 @@ class PeAEvent{
  * @param {PeAEvent.Event} event
  * @private
  * */
-PeAEvent.prototype.addEvent =function(type,event){
+PeAEvent.prototype._addEvent =function(type,event){
     if(!(type in this._events)){
         this._events[type] =[];
     };
@@ -160,7 +160,7 @@ PeAEvent.prototype.addEvent =function(type,event){
  * @param {PeAEvent.Event} event
  * @private
  * */
-PeAEvent.prototype.removeEvent =function(type,event){
+PeAEvent.prototype._removeEvent =function(type,event){
     if(!(type in this._events)){
         return false;
     };
