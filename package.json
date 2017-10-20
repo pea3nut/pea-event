@@ -1,6 +1,6 @@
 {
   "name": "pea-event",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a can be extended event model class",
   "main": "src/PeAEvent.js",
   "scripts": {
